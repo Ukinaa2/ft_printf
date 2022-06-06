@@ -6,20 +6,21 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 12:57:12 by gguedes           #+#    #+#             */
-/*   Updated: 2022/05/23 13:32:51 by gguedes          ###   ########.fr       */
+/*   Updated: 2022/06/06 14:08:08 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
 #include <unistd.h>
+#include <stdarg.h>
 
-static void	ft_putchar(int c)
+void	ft_putchar(int c)
 {
 	write(1, &c, 1);
 }
 
-static int	ft_putstr(char	*str)
+int	ft_putstr(char	*str)
 {
 	int	i;
 
@@ -32,7 +33,22 @@ static int	ft_putstr(char	*str)
 	return (i - 1);
 }
 
-static int	ft_putnbr(int nbr)
+int	ft_puthex(unsigned int nbr, char *base)
+{
+	int		i;
+
+	i = 0;
+	if (nbr > 9)
+	{
+		ft_puthex(nbr / 16, base);
+		i++;
+	}
+	if (nbr > 0)
+		ft_putchar(base[nbr % 16]);
+	return (i);
+}
+
+int	ft_putnbr(int nbr)
 {
 	int	i;
 
@@ -85,27 +101,27 @@ int	ft_printf(const char *str, ...)
 			else if (str[i] == 'u')
 				va_arg(args, unsigned int);
 			else if (str[i] == 'x')
-				va_arg(args, int);
+				j += ft_puthex(va_arg(args, int), "0123456789abcdef");
 			else if (str[i] == 'X')
-				va_arg(args, int);
+				j += ft_puthex(va_arg(args, int), "0123456789ABCDEF");
 			else
-				ft_putchar_fd(str[i], 1);
+				ft_putchar(str[i]);
 		}
 		else
-			ft_putchar_fd(str[i], 1);
+			ft_putchar(str[i]);
 		i++;
 	}
 	return (i + j);
 }
 
-int main(void)
+int	main(void)
 {
-	int		i;
-	char	str[] = "abcde";
+	int	i;
+	int	j;
 
-	i = ft_printf("%cb%cd%c\n%s\n%i\n", 'a', 'c', 'e', str, 42);
-	ft_printf("%i\n", i);
-	i = printf("%cb%cd%c\n%s\n%i\n", 'a', 'c', 'e', str, 42);
-	printf("%i\n", i);
+	i = ft_printf("%x | %X | %x\n", -134302, 134302, 2147483647);
+	j = printf("%x | %X | %x\n", -134302, 134302, 2147483647);
+	ft_printf("%i | %i\n", i, j);
+	printf("%i | %i\n", i, j);
 	return (0);
 }
