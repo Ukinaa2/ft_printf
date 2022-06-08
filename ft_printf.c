@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 12:57:12 by gguedes           #+#    #+#             */
-/*   Updated: 2022/06/07 13:57:04 by gguedes          ###   ########.fr       */
+/*   Updated: 2022/06/08 13:50:22 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ int	ft_printf(const char *str, ...)
 			else if (str[i] == 's')
 				j += ft_putstr_fd(va_arg(args, char *), 1);
 			else if (str[i] == 'p')
-				j += ft_puthex_fd(va_arg(args, int), "0123456789abcdef", 1);
+				ft_itoa_base(va_arg(args, int), 16);
 			else if (str[i] == 'd')
 				va_arg(args, int);
 			else if (str[i] == 'i')
-				j += ft_putnbr_fd(va_arg(args, int), 1);
+				ft_itoa_base(va_arg(args, int), 10);
 			else if (str[i] == 'u')
 				va_arg(args, unsigned int);
 			else if (str[i] == 'x')
-				j += ft_puthex_fd(va_arg(args, int), "0123456789abcdef", 1);
+				ft_itoa_base(va_arg(args, int), 16);
 			else if (str[i] == 'X')
-				j += ft_puthex_fd(va_arg(args, int), "0123456789ABCDEF", 1);
+				ft_itoa_base(va_arg(args, int), 16);
 			else
 				j += ft_putchar_fd(str[i], 1);
 		}
