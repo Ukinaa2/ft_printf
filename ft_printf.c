@@ -6,14 +6,11 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 12:57:12 by gguedes           #+#    #+#             */
-/*   Updated: 2022/06/08 13:50:22 by gguedes          ###   ########.fr       */
+/*   Updated: 2022/06/08 14:03:02 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
-#include <unistd.h>
-#include <stdarg.h>
 
 int	ft_printf(const char *str, ...)
 {
@@ -24,7 +21,7 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	j = 0;
 	va_start(args, str);
-	while (str[i] && str)
+	while (str[i])
 	{
 		if (str[i] == '%')
 		{
@@ -34,17 +31,17 @@ int	ft_printf(const char *str, ...)
 			else if (str[i] == 's')
 				j += ft_putstr_fd(va_arg(args, char *), 1);
 			else if (str[i] == 'p')
-				ft_itoa_base(va_arg(args, int), 16);
+				j += ft_putstr_fd(ft_itoa_base(va_arg(args, int), 16), 1);
 			else if (str[i] == 'd')
-				va_arg(args, int);
+				j += ft_putstr_fd(ft_itoa_base(va_arg(args, int), 10), 1);
 			else if (str[i] == 'i')
-				ft_itoa_base(va_arg(args, int), 10);
+				j += ft_putstr_fd(ft_itoa_base(va_arg(args, int), 10), 1);
 			else if (str[i] == 'u')
 				va_arg(args, unsigned int);
 			else if (str[i] == 'x')
-				ft_itoa_base(va_arg(args, int), 16);
+				j += ft_putstr_fd(ft_itoa_base(va_arg(args, int), 16), 1);
 			else if (str[i] == 'X')
-				ft_itoa_base(va_arg(args, int), 16);
+				j += ft_putstr_fd(ft_itoa_base(va_arg(args, int), 16), 1);
 			else
 				j += ft_putchar_fd(str[i], 1);
 		}
@@ -55,13 +52,15 @@ int	ft_printf(const char *str, ...)
 	return (i + j);
 }
 
+#include <stdio.h>
+
 int	main(void)
 {
 	int	i;
 	int	j;
 
-	i = ft_printf("%i | %x | %X | %p\n", 42, 134302, 134302, &i);
-	j = printf("%i | %x | %X | %p\n", 42, 134302, 134302, &i);
+	i = ft_printf("%i | %x | %X\n", 42, 134302, 134302);
+	j = printf("%i | %x | %X\n", 42, 134302, 134302);
 	ft_printf("%i | %i\n", i, j);
 	printf("%i | %i\n", i, j);
 	return (0);

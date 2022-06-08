@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 10:43:20 by gguedes           #+#    #+#             */
-/*   Updated: 2022/06/08 13:46:51 by gguedes          ###   ########.fr       */
+/*   Updated: 2022/06/08 13:58:49 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char	*ft_itoa_base(int n, int base)
 	return (new_str);
 }
 
+/*
 int main(int argc, char **argv)
 {
 	int	i;
@@ -59,3 +60,4 @@ int main(int argc, char **argv)
 	printf("%x\n", i);
 	printf("%i\n", i);
 }
+*/
