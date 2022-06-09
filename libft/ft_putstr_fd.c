@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:39:46 by gguedes           #+#    #+#             */
-/*   Updated: 2022/06/07 13:51:45 by gguedes          ###   ########.fr       */
+/*   Updated: 2022/06/09 13:41:23 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 int	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
-
 	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-		i++;
-	return (write(fd, s, i));
+		return (write(fd, "(null)", 6));
+	return (write(fd, s, ft_strlen(s)));
 }
