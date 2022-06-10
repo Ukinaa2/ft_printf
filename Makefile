@@ -19,7 +19,7 @@ RM			=	rm -f
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
-	cp $(LIBFT_PATH)$(LIBFT) libftprintf.a
+	cp $(LIBFT_PATH)$(LIBFT) $(NAME)
 	ar rcs $(NAME) $(OBJ)
 
 $(LIBFT):
