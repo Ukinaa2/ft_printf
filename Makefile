@@ -11,8 +11,8 @@ SRC			=	libft/ft_isalpha.c		libft/ft_isdigit.c		libft/ft_isalnum.c \
 				libft/ft_strjoin.c		libft/ft_strtrim.c		libft/ft_split.c \
 				libft/ft_itoa.c			libft/ft_strmapi.c		libft/ft_striteri.c \
 				libft/ft_putchar_fd.c	libft/ft_putstr_fd.c	libft/ft_putendl_fd.c \
-				libft/ft_putnbr_fd.c	libft/ft_itoa_base.c	ft_printf.c \
-				libft/ft_strupper.c		libft/ft_puthex_fd.c
+				libft/ft_putnbr_fd.c	libft/ft_itoa_base.c	libft/ft_putunbr_fd.c \
+				libft/ft_strupper.c		libft/ft_puthex_fd.c	ft_printf.c
 
 OBJ			=	$(SRC:.c=.o)
 
