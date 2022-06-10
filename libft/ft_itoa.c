@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:26:45 by gguedes           #+#    #+#             */
-/*   Updated: 2022/06/09 17:37:58 by gguedes          ###   ########.fr       */
+/*   Updated: 2022/06/10 18:59:18 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ static int	ft_count_size(int n)
 	size = 0;
 	if (n < 0)
 		size++;
-	while (n /= 10)
+	while (n)
+	{
+		n /= 10;
 		size++;
+	}
 	return (size + 1);
 }
 

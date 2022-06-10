@@ -6,26 +6,29 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 10:43:20 by gguedes           #+#    #+#             */
-/*   Updated: 2022/06/09 21:55:49 by gguedes          ###   ########.fr       */
+/*   Updated: 2022/06/10 19:00:50 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static int	ft_count_size(long long n, int base)
+static int	ft_count_size(int n, int base)
 {
 	int	size;
 
 	size = 0;
 	if (n < 0 && base == 10)
 		size++;
-	while (n /= base)
+	while (n)
+	{
+		n /= base;
 		size++;
+	}
 	return (size + 1);
 }
 
-char	*ft_itoa_base(long long n, int base)
+char	*ft_itoa_base(int n, int base)
 {
 	unsigned long	un;
 	int				size;
