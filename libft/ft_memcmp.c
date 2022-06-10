@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 10:55:09 by gguedes           #+#    #+#             */
-/*   Updated: 2022/05/17 10:51:39 by gguedes          ###   ########.fr       */
+/*   Updated: 2022/06/09 19:32:20 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*cs1;
+	unsigned char	*cs2;
 
 	i = 0;
+	cs1 = (unsigned char *)s1;
+	cs2 = (unsigned char *)s2;
 	while (i < n)
 	{
-		if (*(unsigned char *)(s1 + i) != *(unsigned char *)(s2 + i))
-			return (*(unsigned char *)(s1 + i) - *(unsigned char *)(s2 + i));
+		if (cs1[i] != cs2[i])
+			return (cs1[i] - cs2[i]);
 		i++;
 	}
 	return (0);

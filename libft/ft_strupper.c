@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strupper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 11:47:18 by gguedes           #+#    #+#             */
-/*   Updated: 2022/06/09 18:10:46 by gguedes          ###   ########.fr       */
+/*   Created: 2022/06/09 20:54:14 by gguedes           #+#    #+#             */
+/*   Updated: 2022/06/09 21:48:23 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_strupper(char *s, int (*f)(int))
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	int	i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		f(s[i]);
+		i++;
+	}
 }

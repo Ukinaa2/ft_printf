@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 12:57:12 by gguedes           #+#    #+#             */
-/*   Updated: 2022/06/09 13:36:47 by gguedes          ###   ########.fr       */
+/*   Updated: 2022/06/09 23:56:52 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ int	ft_printf(const char *str, ...)
 			else if (*str == 'p')
 			{
 				i += ft_putstr_fd("0x", 1);
-				i += ft_putstr_fd(ft_itoa_base(va_arg(args, long long), 16), 1);
+				i += ft_puthex_fd(va_arg(args, unsigned long), 1);
 			}
 			else if (*str == 'd')
-				i += ft_putstr_fd(ft_itoa_base(va_arg(args, int), 10), 1);
+				i += ft_putnbr_fd(va_arg(args, long), 1);
 			else if (*str == 'i')
-				i += ft_putstr_fd(ft_itoa_base(va_arg(args, int), 10), 1);
+				i += ft_putnbr_fd(va_arg(args, long), 1);
 			else if (*str == 'u')
-				i += ft_putstr_fd(ft_itoa_base(va_arg(args, unsigned int), 10), 1);
+				i += ft_putnbr_fd(va_arg(args, unsigned long), 1);
 			else if (*str == 'x')
-				i += ft_putstr_fd(ft_itoa_base(va_arg(args, long long), 16), 1);
+				i += ft_puthex_fd(va_arg(args, unsigned long), 1);
 			else if (*str == 'X')
-				i += ft_putstr_fd(ft_strmapi(ft_itoa_base(va_arg(args, long long), 16), &ft_toupper), 1);
+				i += ft_puthex_fd(va_arg(args, unsigned long), 1);
 			else if (*str == '%')
 				i += ft_putchar_fd('%', 1);
 		}

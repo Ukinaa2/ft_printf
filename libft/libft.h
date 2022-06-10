@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 11:43:07 by gguedes           #+#    #+#             */
-/*   Updated: 2022/06/09 11:59:30 by gguedes          ###   ########.fr       */
+/*   Updated: 2022/06/09 23:56:19 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-char	*ft_itoa_base(long long n, int base);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -50,13 +49,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
+char	*ft_itoa_base(long long n, int base);
 char	*ft_itoa(int n);
-char	*ft_strmapi(char const *s, int (*f)(int));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 int		ft_putchar_fd(char c, int fd);
 int		ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
+int		ft_putnbr_fd(long n, int fd);
+int		ft_puthex_fd(unsigned long n, int fd);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -66,5 +67,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void	ft_strupper(char *s, int (*f)(int));
 
 #endif
