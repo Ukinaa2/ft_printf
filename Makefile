@@ -19,7 +19,8 @@ RM			=	rm -f
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
-	ar rcs $(NAME) $(OBJ) $(LIBFT_PATH)$(LIBFT)
+	cp $(LIBFT_PATH)$(LIBFT) libftprintf.a
+	ar rcs $(NAME) $(OBJ)
 
 $(LIBFT):
 	make -C $(LIBFT_PATH)
