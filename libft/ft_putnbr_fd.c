@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:58:16 by gguedes           #+#    #+#             */
-/*   Updated: 2022/06/10 12:58:03 by gguedes          ###   ########.fr       */
+/*   Updated: 2022/06/13 13:21:44 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_putnbr_fd(int n, int fd)
 
 	i = 0;
 	if (n == -2147483648)
-		return (ft_putstr_fd("-2147483648", 1));
+		return (ft_putstr_fd("-2147483648", fd));
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
