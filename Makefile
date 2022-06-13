@@ -8,8 +8,6 @@ SRC			=	ft_printf.c
 
 OBJ			=	$(SRC:.c=.o)
 
-BONUS		=	
-
 BONUS_OBJ	=	$(BONUS:.c=.o)
 
 CFLAGS		=	-Wall -Wextra -Werror -I.
@@ -18,17 +16,13 @@ RM			=	rm -f
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ)
+$(NAME): $(OBJ)
+	make -C $(LIBFT_PATH)
 	cp $(LIBFT_PATH)$(LIBFT) $(NAME)
 	ar rcs $(NAME) $(OBJ)
 
-$(LIBFT):
-	make -C $(LIBFT_PATH)
-
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
-
-bonus:
 
 clean:
 	make -C $(LIBFT_PATH) clean
