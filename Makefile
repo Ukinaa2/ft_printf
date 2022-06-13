@@ -8,8 +8,6 @@ SRC			=	ft_printf.c
 
 OBJ			=	$(SRC:.c=.o)
 
-BONUS_OBJ	=	$(BONUS:.c=.o)
-
 CFLAGS		=	-Wall -Wextra -Werror -I.
 
 RM			=	rm -f
