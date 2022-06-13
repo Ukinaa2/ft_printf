@@ -6,11 +6,11 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 22:12:13 by gguedes           #+#    #+#             */
-/*   Updated: 2022/06/10 12:48:20 by gguedes          ###   ########.fr       */
+/*   Updated: 2022/06/13 13:54:54 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_puthex_fd(unsigned long n, char *base, int fd)
 {
