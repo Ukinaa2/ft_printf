@@ -4,7 +4,7 @@ LIBFT		=	libft.a
 
 LIBFT_PATH	=	libft/
 
-SRC			=	ft_printf.c
+SRC			=	ft_printf.c ft_putunbr.c ft_puthex_fd.c
 
 OBJ			=	$(SRC:.c=.o)
 
